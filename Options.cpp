@@ -155,12 +155,18 @@ void ArthAsianCall::PayoffTree(BinLatticeDep<double>& Price) {
 }
 
 // Computes the payoff for a given path for the Asian call option
-double ArthAsianCall::Payoff(const vector<double>& Path) {
-    double N = GetN();
-    double pay = accumulate(Path.begin() + 1, Path.end(), 0.0);
-    return max((pay / N) - K, 0.0);
+ double ArthAsianCall::Payoff(const vector <double>& Path)
+{
+   double N = GetN();
+   double pay = 0;
+  for (int  i = 1;  i <= N; i++) 
+  {
+   pay += Path[i];
+  }
+  
+  if((pay/N)-K>0){ return (pay/N)-K;}
+  else{ return 0;}
 }
-
 // Gets input for the LookBack option
 void LookBack::GetInput() {
     int N;
