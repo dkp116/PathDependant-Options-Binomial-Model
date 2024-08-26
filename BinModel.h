@@ -1,30 +1,29 @@
 #ifndef BinModel_h
 #define BinModel_h
+class BinModel {
+private:
+    double S0;  // Initial stock price
+    double U;   // Up factor
+    double D;   // Down factor
+    double R;   // Risk-free interest rate
 
-class BinModel
-{
-   private:
-      double S0;
-      double U;
-      double D;
-      double R;
+public:
+    // Computes the risk-neutral probability
+    double RiskNeutProb();
 
-   public:
-      //computing risk-neutral probability
-      double RiskNeutProb();
+    // Computes the stock price at node (n, i)
+    double S(int n, int i);
 
-      //computing the stock price at node n,i
-      double S(int n, int i); 
+    // Placeholder for a potential method to compute stock price at node (n, i, d)
+    double S(int n, int i, int d);
 
-      double S(int n, int i, int d);
-   
-      //inputting, displaying and checking model data
-      int GetInputData();
+    // Inputs, displays, and checks model data
+    int GetInputData();
 
-      double GetR();
-      double GetU();
-      double GetD();
-      double GetS0();
+    // Accessor methods
+    double GetR();
+    double GetU();
+    double GetD();
+    double GetS0();
 };
-
 #endif
