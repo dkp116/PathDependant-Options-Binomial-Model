@@ -1,0 +1,407 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+NM CW2
+\end_layout
+
+\begin_layout Author
+Daneel Patel
+\end_layout
+
+\begin_layout Standard
+Assume these inputs for stock for calculation 
+\end_layout
+
+\begin_layout Standard
+S0: 100 
+\end_layout
+
+\begin_layout Standard
+U: 0.1 
+\end_layout
+
+\begin_layout Standard
+D: -0.1 
+\end_layout
+
+\begin_layout Standard
+R: 0.05
+\end_layout
+
+\begin_layout Subsection*
+How it works
+\end_layout
+
+\begin_layout Subsubsection*
+For CRR pricing
+\end_layout
+
+\begin_layout Standard
+I create the full tree, then calculate the payoffs depending on the type
+ of option inputted and add it to the end nodes, then I use CRR formula
+ to find initial value 
+\end_layout
+
+\begin_layout Subsubsection*
+For MC 
+\end_layout
+
+\begin_layout Standard
+I use random number generator between 0 and 1, if the value if less than
+ or equal to risk neutral probability then 1 is added to an array, else
+ 0 is added.
+ this denotes the jumps in tree.
+\end_layout
+
+\begin_layout Standard
+I then compute the stock price path for the given vector, from this pay
+ the payoff of the option is found.
+\end_layout
+
+\begin_layout Standard
+Can easily add another pathdependant option and if path independent option
+ wants to be calculated, simply make a new class under Option.
+\end_layout
+
+\begin_layout Subsection*
+ArthAsian Call pricing [MC sim = 10000]
+\end_layout
+
+\begin_layout Standard
+1
+\end_layout
+
+\begin_layout Standard
+Expiry time 4 
+\end_layout
+
+\begin_layout Standard
+Strike Price 110 
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 6.02766 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 0.0644519 
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.0742856 seconds CRR Price 5.96778 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 1.7549e-05 seconds
+\end_layout
+
+\begin_layout Standard
+2
+\end_layout
+
+\begin_layout Standard
+Enter Expiry time 9 
+\end_layout
+
+\begin_layout Standard
+Enter Strike Price 110 
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 13.2892 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 0.114841 
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.0798644 seconds 
+\end_layout
+
+\begin_layout Standard
+CRR Price 13.4222 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 0.000197845 seconds 
+\end_layout
+
+\begin_layout Standard
+3
+\end_layout
+
+\begin_layout Standard
+Enter Expiry time 7 
+\end_layout
+
+\begin_layout Standard
+Enter Strike Price 130 
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 2.76683 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 0.0485051 
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.0808903 seconds
+\end_layout
+
+\begin_layout Standard
+CRR Price 2.82995 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 6.3018e-05 seconds 
+\end_layout
+
+\begin_layout Section*
+LookBack 
+\end_layout
+
+\begin_layout Standard
+1 Enter Expiry time 6 
+\end_layout
+
+\begin_layout Standard
+Enter Strike Price 110 
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 28.8225 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 0.549632 
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.00951861 seconds 
+\end_layout
+
+\begin_layout Standard
+CRR Price 28.8938 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 4.7136e-05 seconds 
+\end_layout
+
+\begin_layout Standard
+2
+\end_layout
+
+\begin_layout Standard
+Enter Expiry time 10 
+\end_layout
+
+\begin_layout Standard
+Enter Strike Price 110 
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 42.3388 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 0.774265
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.00948357 seconds 
+\end_layout
+
+\begin_layout Standard
+CRR Price 41.7615 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 0.00124138 seconds 
+\end_layout
+
+\begin_layout Standard
+3
+\end_layout
+
+\begin_layout Standard
+Enter Expiry time 20 
+\end_layout
+
+\begin_layout Standard
+Enter Strike Price 110 
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 64.8583 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 1.18389 
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.0130761 seconds 
+\end_layout
+
+\begin_layout Standard
+CRR Price 64.342 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 0.896325 seconds 
+\end_layout
+
+\begin_layout Standard
+For large expirary dates, MC is a lot quicker than CRR and MC standard error
+ increases
+\end_layout
+
+\begin_layout Subsubsection*
+for MC sim 100000 [Lookback]
+\end_layout
+
+\begin_layout Standard
+1 Enter Expiry time 6 
+\end_layout
+
+\begin_layout Standard
+Enter Strike Price 110
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 28.8434 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 0.054583 
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.681339 seconds
+\end_layout
+
+\begin_layout Standard
+CRR Price 28.8938 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 3.9702e-05 seconds
+\end_layout
+
+\begin_layout Subsubsection*
+for MC sim 1000
+\end_layout
+
+\begin_layout Standard
+Enter Expiry time 6 
+\end_layout
+
+\begin_layout Standard
+Enter Strike Price 110 
+\end_layout
+
+\begin_layout Standard
+MC Estimation is 28.6366 
+\end_layout
+
+\begin_layout Standard
+MC Standard Error is 0.547668 
+\end_layout
+
+\begin_layout Standard
+The time taken for MC Price 0.0105378 seconds 
+\end_layout
+
+\begin_layout Standard
+CRR Price 28.8938 
+\end_layout
+
+\begin_layout Standard
+The time taken for CRR Price 4.2587e-05 seconds 
+\end_layout
+
+\begin_layout Standard
+As expected time is a lot quicker, but standard deviation is similar
+\end_layout
+
+\end_body
+\end_document
